@@ -13,43 +13,27 @@ import static org.junit.Assert.*;
 /**
  *
  * @author DrackMegam
- * @author Laura Álvarez
  */
-public class CafeCapsulasTest {
+public class MaquinaCapsulasTest {
     
-    public CafeCapsulasTest() {
-    }
-    
-    @Before
-    public void setUp() {
+    public MaquinaCapsulasTest() {
     }
     
-    @After
-    public void tearDown() {
+
+    @Test
+    public void testValues() {
     }
 
     @Test
-    public void testGetNumCapsulas() {
+    public void testValueOf() {
     }
 
     @Test
-    public void testSetNumCapsulas() {
+    public void testToString() {
     }
 
     @Test
-    public void testIsDuplo() {
-    }
-
-    @Test
-    public void testSetDuplo() {
-    }
-
-    @Test
-    public void testGetMaquina() {
-    }
-
-    @Test
-    public void testSetMaquina() {
+    public void testParseValue() {
     }
     
 }

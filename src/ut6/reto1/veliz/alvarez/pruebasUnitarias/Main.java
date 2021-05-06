@@ -5,6 +5,8 @@
  */
 package ut6.reto1.veliz.alvarez.pruebasUnitarias;
 
+import java.util.Arrays;
+
 /**
  *
  * @author DrackMegam
@@ -17,7 +19,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        System.out.println("prueba");
+        System.out.println(Categoria.CACAOS_SOLUBLES.toString());
         
     }
     

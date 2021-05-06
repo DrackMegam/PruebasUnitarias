@@ -6,42 +6,55 @@
 package ut6.reto1.veliz.alvarez.pruebasUnitarias;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.JUnitCore;
 
 /**
  *
  * @author DrackMegam
- * @author Laura Álvarez
  */
 public class ProductoTest {
-    
+
+    Producto vacioProducto;
+    Producto llenoProducto;
+
     public ProductoTest() {
     }
-    
+
     @Before
-    public void setUp() {
-        Producto VacioProducto = new Producto();
-        Producto LlenoProducto = new Producto(1234, "Cafe chulo", "Un café chulísimo", Categoria.CAFÉS, 6, 4, 4.05, TipoIVA.NORMAL);
-        
+    public void setUp() throws Exception {
+        vacioProducto = new Producto();
+        llenoProducto = new Producto(1234, "Cafe chulo", "Un café chulísimo", Categoria.CAFÉS, 6, 4, 4.05, TipoIVA.NORMAL);
     }
-    
+
     @After
     public void tearDown() {
     }
 
     @Test
     public void testGetCodBarras() {
+        Assert.assertEquals(1234, llenoProducto.getCodBarras());
+        Assert.assertNotEquals(987, llenoProducto.getCodBarras());
     }
 
     @Test
     public void testSetCodBarras() {
+        vacioProducto.setCodBarras(3);
+        Assert.assertEquals(3, vacioProducto.getCodBarras());
+    }
+
+    @Test
+    public void testSetCodBarras2() {
+        // Ponemos -3, pero lo tiene que settear como 0.
+        vacioProducto.setCodBarras(-3);
+        Assert.assertEquals(0, vacioProducto.getCodBarras());
     }
 
     @Test
     public void testGetNombre() {
-        
     }
 
     @Test
@@ -95,5 +108,5 @@ public class ProductoTest {
     @Test
     public void testSetTipoIVA() {
     }
-    
+
 }
