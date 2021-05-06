@@ -24,9 +24,21 @@ public class Producto {
     }
 
     public Producto(long codBarras, String nombre, String descripcion, Categoria categoria, int numPasillo, int numEstanteria, double precio, TipoIVA tipoIVA) {
-        this.codBarras = codBarras;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+        if(codBarras<0){
+            this.codBarras=0;
+        }else{
+            this.codBarras = codBarras;
+        }
+        if(nombre==null || nombre.length()==0){
+            throw new IllegalArgumentException("El nombre no puede ser nulo.");
+        }else{
+            this.nombre = nombre;
+        }
+        if(descripcion==null){
+            this.descripcion="";
+        }else{
+            this.descripcion = descripcion;
+        }
         this.categoria = categoria;
         this.numPasillo = numPasillo;
         this.numEstanteria = numEstanteria;
@@ -39,7 +51,11 @@ public class Producto {
     }
 
     public void setCodBarras(long codBarras) {
-        this.codBarras = codBarras;
+        if(codBarras<0){
+            this.codBarras=0;
+        }else{
+            this.codBarras = codBarras;
+        }
     }
 
     public String getNombre() {
@@ -47,7 +63,11 @@ public class Producto {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        if(nombre==null || nombre.length()==0){
+            throw new IllegalArgumentException("El nombre no puede ser nulo.");
+        }else{
+            this.nombre = nombre;
+        }
     }
 
     public String getDescripcion() {
@@ -55,7 +75,11 @@ public class Producto {
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        if(descripcion==null){
+            this.descripcion="";
+        }else{
+            this.descripcion = descripcion;
+        }
     }
 
     public Categoria getCategoria() {
