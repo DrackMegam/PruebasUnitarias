@@ -58,10 +58,13 @@ public class ProductoTest {
     }
 
     @Test
+    (expected = IllegalArgumentException.class)
     public void testSetNombre() {
+        llenoProducto.setNombre(null);
     }
 
     @Test
+    (timeout = 1000)
     public void testGetDescripcion() {
     }
 
