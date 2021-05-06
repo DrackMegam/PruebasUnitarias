@@ -8,6 +8,7 @@ package ut6.reto1.veliz.alvarez.pruebasUnitarias;
 /**
  *
  * @author DrackMegam
+ * @author Laura Álvarez
  */
 public class Producto {
 
@@ -28,7 +29,7 @@ public class Producto {
         this.numPasillo=0;
         this.numEstanteria=0;
         this.precio=0.01;
-        this.tipoIVA=TipoIVA.VEINTIUNO;
+        this.tipoIVA=TipoIVA.NORMAL;
     }
 
     public Producto(long codBarras, String nombre, String descripcion, Categoria categoria, int numPasillo, int numEstanteria, double precio, TipoIVA tipoIVA) {
@@ -48,7 +49,7 @@ public class Producto {
             this.descripcion = descripcion;
         }
         if (categoria == null || !categoria.equals(Categoria.CACAOS_SOLUBLES)
-                || !categoria.equals(Categoria.CAFES)
+                || !categoria.equals(Categoria.CAFÉS)
                 || !categoria.equals(Categoria.CONGELADOS)
                 || !categoria.equals(Categoria.DESCONOCIDO)
                 || !categoria.equals(Categoria.FRESCOS)
@@ -73,12 +74,12 @@ public class Producto {
         } else {
             this.precio = numPasillo;
         }
-        if (!tipoIVA.equals(TipoIVA.CUATRO)
-                || !tipoIVA.equals(TipoIVA.DIEZ)
-                || !tipoIVA.equals(TipoIVA.VEINTIUNO)) {
-            this.tipoIVA = TipoIVA.VEINTIUNO;
+        if (!tipoIVA.equals(TipoIVA.SUPERREDUCIDO)
+                || !tipoIVA.equals(TipoIVA.REDUCIDO)
+                || !tipoIVA.equals(TipoIVA.NORMAL)) {
+            this.tipoIVA = TipoIVA.NORMAL;
         } else if (this instanceof CafeCapsulas) {
-            this.tipoIVA = TipoIVA.VEINTIUNO;
+            this.tipoIVA = TipoIVA.NORMAL;
         } else {
             this.tipoIVA = tipoIVA;
         }
@@ -127,7 +128,7 @@ public class Producto {
 
     public void setCategoria(Categoria categoria) {
         if (categoria == null || !categoria.equals(Categoria.CACAOS_SOLUBLES)
-                || !categoria.equals(Categoria.CAFES)
+                || !categoria.equals(Categoria.CAFÉS)
                 || !categoria.equals(Categoria.CONGELADOS)
                 || !categoria.equals(Categoria.DESCONOCIDO)
                 || !categoria.equals(Categoria.FRESCOS)
@@ -179,12 +180,12 @@ public class Producto {
     }
 
     public void setTipoIVA(TipoIVA tipoIVA) {
-        if (!tipoIVA.equals(TipoIVA.CUATRO)
-                || !tipoIVA.equals(TipoIVA.DIEZ)
-                || !tipoIVA.equals(TipoIVA.VEINTIUNO)) {
-            this.tipoIVA = TipoIVA.VEINTIUNO;
+        if (!tipoIVA.equals(TipoIVA.SUPERREDUCIDO)
+                || !tipoIVA.equals(TipoIVA.REDUCIDO)
+                || !tipoIVA.equals(TipoIVA.NORMAL)) {
+            this.tipoIVA = TipoIVA.NORMAL;
         } else if (this instanceof CafeCapsulas) {
-            this.tipoIVA = TipoIVA.VEINTIUNO;
+            this.tipoIVA = TipoIVA.NORMAL;
         } else {
             this.tipoIVA = tipoIVA;
         }

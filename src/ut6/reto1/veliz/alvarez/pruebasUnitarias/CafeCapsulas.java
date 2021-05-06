@@ -8,6 +8,7 @@ package ut6.reto1.veliz.alvarez.pruebasUnitarias;
 /**
  *
  * @author DrackMegam
+ * @author Laura Álvarez
  */
 public class CafeCapsulas extends Producto{
     
