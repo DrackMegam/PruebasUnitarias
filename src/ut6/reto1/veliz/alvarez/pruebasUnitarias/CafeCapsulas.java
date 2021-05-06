@@ -16,13 +16,26 @@ public class CafeCapsulas extends Producto{
     private MaquinaCapsulas maquina;
 
     public CafeCapsulas() {
+        this.numCapsulas=8;
+        this.duplo=false;
+        this.maquina=MaquinaCapsulas.DESCONOCIDO;
     }
 
     public CafeCapsulas(int numCapsulas, boolean duplo, MaquinaCapsulas maquina, long codBarras, String nombre, String descripcion, Categoria categoria, int numPasillo, int numEstanteria, double precio, TipoIVA tipoIVA) {
         super(codBarras, nombre, descripcion, categoria, numPasillo, numEstanteria, precio, tipoIVA);
-        this.numCapsulas = numCapsulas;
+        
+        if(numCapsulas>=8 && numCapsulas<=32){
+             this.numCapsulas = numCapsulas;
+        }else{
+            this.numCapsulas=8;
+        }
         this.duplo = duplo;
-        this.maquina = maquina;
+        if(maquina==null){
+            this.maquina=MaquinaCapsulas.DESCONOCIDO;
+        }else{
+            this.maquina = maquina;
+        }
+        
     }
 
     public int getNumCapsulas() {
@@ -30,7 +43,11 @@ public class CafeCapsulas extends Producto{
     }
 
     public void setNumCapsulas(int numCapsulas) {
-        this.numCapsulas = numCapsulas;
+        if(numCapsulas>=8 && numCapsulas<=32){
+             this.numCapsulas = numCapsulas;
+        }else{
+            this.numCapsulas=8;
+        }
     }
 
     public boolean isDuplo() {
@@ -46,7 +63,11 @@ public class CafeCapsulas extends Producto{
     }
 
     public void setMaquina(MaquinaCapsulas maquina) {
-        this.maquina = maquina;
+        if(maquina==null){
+            this.maquina=MaquinaCapsulas.DESCONOCIDO;
+        }else{
+            this.maquina = maquina;
+        }
     }
     
     

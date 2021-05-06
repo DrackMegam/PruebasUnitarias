@@ -10,7 +10,7 @@ package ut6.reto1.veliz.alvarez.pruebasUnitarias;
  * @author DrackMegam
  */
 public class Producto {
-    
+
     private long codBarras;
     private String nombre;
     private String descripcion;
@@ -18,32 +18,71 @@ public class Producto {
     private int numPasillo;
     private int numEstanteria;
     private double precio;
-    private TipoIVA tipoIVA; 
+    private TipoIVA tipoIVA;
 
     public Producto() {
+        this.codBarras=0;
+        this.nombre="SIN NOMBRE";
+        this.descripcion="";
+        this.categoria=Categoria.DESCONOCIDO;
+        this.numPasillo=0;
+        this.numEstanteria=0;
+        this.precio=0.01;
+        this.tipoIVA=TipoIVA.VEINTIUNO;
     }
 
     public Producto(long codBarras, String nombre, String descripcion, Categoria categoria, int numPasillo, int numEstanteria, double precio, TipoIVA tipoIVA) {
-        if(codBarras<0){
-            this.codBarras=0;
-        }else{
+        if (codBarras < 0) {
+            this.codBarras = 0;
+        } else {
             this.codBarras = codBarras;
         }
-        if(nombre==null || nombre.length()==0){
+        if (nombre == null || nombre.length() == 0) {
             throw new IllegalArgumentException("El nombre no puede ser nulo.");
-        }else{
+        } else {
             this.nombre = nombre;
         }
-        if(descripcion==null){
-            this.descripcion="";
-        }else{
+        if (descripcion == null) {
+            this.descripcion = "";
+        } else {
             this.descripcion = descripcion;
         }
-        this.categoria = categoria;
-        this.numPasillo = numPasillo;
-        this.numEstanteria = numEstanteria;
-        this.precio = precio;
-        this.tipoIVA = tipoIVA;
+        if (categoria == null || !categoria.equals(Categoria.CACAOS_SOLUBLES)
+                || !categoria.equals(Categoria.CAFES)
+                || !categoria.equals(Categoria.CONGELADOS)
+                || !categoria.equals(Categoria.DESCONOCIDO)
+                || !categoria.equals(Categoria.FRESCOS)
+                || !categoria.equals(Categoria.PANADERIA)) {
+            this.categoria = Categoria.DESCONOCIDO;
+        } else {
+            this.categoria = categoria;
+        }
+
+        if (numPasillo < 0) {
+            this.numPasillo = 0;
+        } else {
+            this.numPasillo = numPasillo;
+        }
+        if (numEstanteria < 0) {
+            this.numEstanteria = 0;
+        } else {
+            this.numEstanteria = numPasillo;
+        }
+        if (precio < 0) {
+            this.precio = 0;
+        } else {
+            this.precio = numPasillo;
+        }
+        if (!tipoIVA.equals(TipoIVA.CUATRO)
+                || !tipoIVA.equals(TipoIVA.DIEZ)
+                || !tipoIVA.equals(TipoIVA.VEINTIUNO)) {
+            this.tipoIVA = TipoIVA.VEINTIUNO;
+        } else if (this instanceof CafeCapsulas) {
+            this.tipoIVA = TipoIVA.VEINTIUNO;
+        } else {
+            this.tipoIVA = tipoIVA;
+        }
+
     }
 
     public long getCodBarras() {
@@ -51,9 +90,9 @@ public class Producto {
     }
 
     public void setCodBarras(long codBarras) {
-        if(codBarras<0){
-            this.codBarras=0;
-        }else{
+        if (codBarras < 0) {
+            this.codBarras = 0;
+        } else {
             this.codBarras = codBarras;
         }
     }
@@ -63,9 +102,9 @@ public class Producto {
     }
 
     public void setNombre(String nombre) {
-        if(nombre==null || nombre.length()==0){
+        if (nombre == null || nombre.length() == 0) {
             throw new IllegalArgumentException("El nombre no puede ser nulo.");
-        }else{
+        } else {
             this.nombre = nombre;
         }
     }
@@ -75,9 +114,9 @@ public class Producto {
     }
 
     public void setDescripcion(String descripcion) {
-        if(descripcion==null){
-            this.descripcion="";
-        }else{
+        if (descripcion == null) {
+            this.descripcion = "";
+        } else {
             this.descripcion = descripcion;
         }
     }
@@ -87,7 +126,16 @@ public class Producto {
     }
 
     public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+        if (categoria == null || !categoria.equals(Categoria.CACAOS_SOLUBLES)
+                || !categoria.equals(Categoria.CAFES)
+                || !categoria.equals(Categoria.CONGELADOS)
+                || !categoria.equals(Categoria.DESCONOCIDO)
+                || !categoria.equals(Categoria.FRESCOS)
+                || !categoria.equals(Categoria.PANADERIA)) {
+            this.categoria = Categoria.DESCONOCIDO;
+        } else {
+            this.categoria = categoria;
+        }
     }
 
     public int getNumPasillo() {
@@ -95,7 +143,11 @@ public class Producto {
     }
 
     public void setNumPasillo(int numPasillo) {
-        this.numPasillo = numPasillo;
+        if (numPasillo < 0) {
+            this.numPasillo = 0;
+        } else {
+            this.numPasillo = numPasillo;
+        }
     }
 
     public int getNumEstanteria() {
@@ -103,7 +155,11 @@ public class Producto {
     }
 
     public void setNumEstanteria(int numEstanteria) {
-        this.numEstanteria = numEstanteria;
+        if (numEstanteria < 0) {
+            this.numEstanteria = 0;
+        } else {
+            this.numEstanteria = numPasillo;
+        }
     }
 
     public double getPrecio() {
@@ -111,7 +167,11 @@ public class Producto {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+        if (precio < 0) {
+            this.precio = 0;
+        } else {
+            this.precio = numPasillo;
+        }
     }
 
     public TipoIVA getTipoIVA() {
@@ -119,10 +179,15 @@ public class Producto {
     }
 
     public void setTipoIVA(TipoIVA tipoIVA) {
-        this.tipoIVA = tipoIVA;
+        if (!tipoIVA.equals(TipoIVA.CUATRO)
+                || !tipoIVA.equals(TipoIVA.DIEZ)
+                || !tipoIVA.equals(TipoIVA.VEINTIUNO)) {
+            this.tipoIVA = TipoIVA.VEINTIUNO;
+        } else if (this instanceof CafeCapsulas) {
+            this.tipoIVA = TipoIVA.VEINTIUNO;
+        } else {
+            this.tipoIVA = tipoIVA;
+        }
     }
-    
-    
-    
-    
+
 }
