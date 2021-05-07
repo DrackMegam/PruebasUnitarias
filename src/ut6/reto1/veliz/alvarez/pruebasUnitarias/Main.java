@@ -19,7 +19,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        System.out.println(Categoria.CACAOS_SOLUBLES.toString());
+        System.out.println(Arrays.toString(MaquinaCapsulas.values()));
         
     }
     
