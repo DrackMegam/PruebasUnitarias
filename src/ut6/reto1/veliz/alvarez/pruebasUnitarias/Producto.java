@@ -23,7 +23,7 @@ public class Producto {
 
     public Producto() {
         this.codBarras=0;
-        this.nombre="SIN NOMBRE";
+        this.nombre=null;
         this.descripcion="";
         this.categoria=Categoria.DESCONOCIDO;
         this.numPasillo=0;
@@ -48,12 +48,12 @@ public class Producto {
         } else {
             this.descripcion = descripcion;
         }
-        if (categoria == null || !categoria.equals(Categoria.CACAOS_SOLUBLES)
-                || !categoria.equals(Categoria.CAFÉS)
-                || !categoria.equals(Categoria.CONGELADOS)
-                || !categoria.equals(Categoria.DESCONOCIDO)
-                || !categoria.equals(Categoria.FRESCOS)
-                || !categoria.equals(Categoria.PANADERIA)) {
+        if (categoria == null || categoria!=Categoria.CACAOS_SOLUBLES
+                && categoria!=Categoria.CAFÉS
+                && categoria!=Categoria.CONGELADOS
+                && categoria!=Categoria.DESCONOCIDO
+                && categoria!=Categoria.FRESCOS
+                && categoria!=Categoria.PANADERIA) {
             this.categoria = Categoria.DESCONOCIDO;
         } else {
             this.categoria = categoria;
@@ -99,7 +99,12 @@ public class Producto {
     }
 
     public String getNombre() {
-        return nombre;
+        if(this.nombre==null){
+            throw new IllegalArgumentException("Nombre nulo");
+        }else{
+            return nombre;
+        }
+        
     }
 
     public void setNombre(String nombre) {
@@ -127,12 +132,12 @@ public class Producto {
     }
 
     public void setCategoria(Categoria categoria) {
-        if (categoria == null || !categoria.equals(Categoria.CACAOS_SOLUBLES)
-                || !categoria.equals(Categoria.CAFÉS)
-                || !categoria.equals(Categoria.CONGELADOS)
-                || !categoria.equals(Categoria.DESCONOCIDO)
-                || !categoria.equals(Categoria.FRESCOS)
-                || !categoria.equals(Categoria.PANADERIA)) {
+        if (categoria == null || categoria!=Categoria.CACAOS_SOLUBLES
+                && categoria!=Categoria.CAFÉS
+                && categoria!=Categoria.CONGELADOS
+                && categoria!=Categoria.DESCONOCIDO
+                && categoria!=Categoria.FRESCOS
+                && categoria!=Categoria.PANADERIA) {
             this.categoria = Categoria.DESCONOCIDO;
         } else {
             this.categoria = categoria;
