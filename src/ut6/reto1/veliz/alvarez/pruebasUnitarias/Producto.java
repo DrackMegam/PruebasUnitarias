@@ -164,7 +164,7 @@ public class Producto {
         if (numEstanteria < 0) {
             this.numEstanteria = 0;
         } else {
-            this.numEstanteria = numPasillo;
+            this.numEstanteria = numEstanteria;
         }
     }
 
@@ -176,7 +176,7 @@ public class Producto {
         if (precio < 0) {
             this.precio = 0;
         } else {
-            this.precio = numPasillo;
+            this.precio = precio;
         }
     }
 
