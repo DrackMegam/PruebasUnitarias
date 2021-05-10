@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ut6.reto1.veliz.alvarez.pruebasUnitarias;
 
 import org.junit.After;
@@ -15,6 +11,7 @@ import org.junit.runner.JUnitCore;
 /**
  *
  * @author DrackMegam
+ * @author Laura Álvarez
  */
 public class ProductoTest {
 
@@ -116,18 +113,38 @@ public class ProductoTest {
 
     @Test
     public void testGetNumPasillo() {
+        Assert.assertEquals(6,llenoProducto.getNumPasillo());
+        //No puede ser negativo.Guarda 0 en este caso.
+        Assert.assertNotEquals(-2,vacioProducto.getNumPasillo());
+        Assert.assertEquals(0,vacioProducto.getNumPasillo());
+        Assert.assertNotEquals(70,llenoProducto.getNumPasillo());
     }
 
     @Test
     public void testSetNumPasillo() {
+        vacioProducto.setNumPasillo(12);
+        Assert.assertEquals(12, vacioProducto.getNumPasillo());
+        //Numeros negativos no permitidos. Settea 0.
+        vacioProducto.setNumPasillo(-2);
+        Assert.assertEquals(0, vacioProducto.getNumPasillo());
     }
 
     @Test
     public void testGetNumEstanteria() {
+         Assert.assertEquals(4,llenoProducto.getNumEstanteria());
+        //No puede ser negativo.Guarda 0 en este caso.
+        Assert.assertNotEquals(-4,vacioProducto.getNumEstanteria());
+        Assert.assertEquals(0,vacioProducto.getNumEstanteria());
+        Assert.assertNotEquals(50,llenoProducto.getNumEstanteria());
     }
 
     @Test
     public void testSetNumEstanteria() {
+         vacioProducto.setNumEstanteria(1);
+        Assert.assertEquals(1, vacioProducto.getNumEstanteria());
+        //Numeros negativos no permitidos. Settea 0.
+        vacioProducto.setNumEstanteria(-8);
+        Assert.assertEquals(0, vacioProducto.getNumEstanteria());
     }
 
     @Test
