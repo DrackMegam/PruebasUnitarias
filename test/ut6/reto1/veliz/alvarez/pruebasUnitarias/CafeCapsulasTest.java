@@ -50,10 +50,14 @@ public class CafeCapsulasTest {
 
     @Test
     public void testIsDuplo() {
+        Assert.assertFalse(llenoCafe.isDuplo());
+        Assert.assertTrue(!vacioCafe.isDuplo());
     }
 
     @Test
     public void testSetDuplo() {
+        vacioCafe.setDuplo(true);
+        Assert.assertTrue(vacioCafe.isDuplo());
     }
 
     @Test

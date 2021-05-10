@@ -149,19 +149,35 @@ public class ProductoTest {
 
     @Test
     public void testGetPrecio() {
-            
+        Assert.assertEquals(4.05,llenoProducto.getPrecio(),0.01d);
+        //No puede ser negativo.Guarda 0 en este caso.
+        Assert.assertNotEquals(-2,vacioProducto.getPrecio());
+        Assert.assertEquals(0.01,vacioProducto.getPrecio(),0.01d);
+        Assert.assertNotEquals(70,llenoProducto.getPrecio());
     }
 
     @Test
     public void testSetPrecio() {
+         vacioProducto.setPrecio(5.20);
+        Assert.assertEquals(5.20, vacioProducto.getPrecio(),0.01d);
+        //Numeros negativos no permitidos. Settea 0.01.
+        vacioProducto.setPrecio(-2);
+        Assert.assertEquals(0.01, vacioProducto.getPrecio(),0.01d);
     }
 
     @Test
     public void testGetTipoIVA() {
+        Assert.assertEquals(TipoIVA.NORMAL,llenoProducto.getTipoIVA());
+        
+        Assert.assertEquals(TipoIVA.NORMAL,vacioProducto.getTipoIVA());
     }
 
     @Test
     public void testSetTipoIVA() {
+         llenoProducto.setTipoIVA(TipoIVA.NORMAL);
+        Assert.assertEquals(TipoIVA.NORMAL,llenoProducto.getTipoIVA());
+        vacioProducto.setTipoIVA(TipoIVA.SUPERREDUCIDO);
+        Assert.assertEquals(TipoIVA.NORMAL,vacioProducto.getTipoIVA());
     }
 
 }
